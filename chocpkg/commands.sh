@@ -1,7 +1,5 @@
 # This file contains implementations of the commands accepted on the CLI.
 
-. "$CHOCPKG_ROOT/chocpkg/functions.sh"
-. "$CHOCPKG_ROOT/buildenv.sh"
 
 # basic_setup is invoked on script startup to set various environment variables
 # and create basic directories used throughout the rest of the script.
@@ -295,3 +293,7 @@ chocpkg::commands::command() {
 
 chocpkg::commands::basic_setup
 
+# Note that buildenv.sh requires the INSTALL_DIR path to be set, which is only
+# set in basic_setup(), thus delaying invocation of these scripts until then.
+. "$CHOCPKG_ROOT/chocpkg/functions.sh"
+. "$CHOCPKG_ROOT/buildenv.sh"
